@@ -5,7 +5,7 @@ COPY ["entrypoint.sh", "localtime", "signin", "token", "ttnode", "yfapp.conf", "
 RUN cd /data &&\
     chmod +x entrypoint.sh signin token ttnode &&\
     mv localtime /etc &&\
-    apt-get update && apt-get install --no-install-recommends -y cron && apt-get clean &&\
+    apt-get update && apt-get install --no-install-recommends -y cron procps && apt-get clean &&\
     rm -rf /var/cache/* /var/lib/apt/lists/* &&\
     echo "10 9 * * * /data/entrypoint.sh" > /etc/cron.d/crontab && crontab /etc/cron.d/crontab
 

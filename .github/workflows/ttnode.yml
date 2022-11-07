@@ -1,0 +1,23 @@
+name: ttnode
+
+on:
+  push:
+
+env:
+# 镜像名称
+  name: "ttnode"
+
+jobs:
+  docker:
+    strategy:
+      matrix:
+        tag: [latest]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Login to build and push
+        run: |
+           docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.TOKEN }}
+           docker build -t ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }} .
+           docker push ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }}

@@ -8,17 +8,16 @@
 cd /data
 if [ $(ps fax | grep '[c]ron' | wc -l) -lt 1 ]; then #如果带cron的进程数小于1
      echo "找不到cron，开始运行"
-     service cron start
+     cron
 fi
 
 if [ $DISABLE != "1" ]; then #如果DISABLE不为1
      while [ ! -e token.txt ]; do #如果找不到token.txt
          echo "找不到token.txt，运行token登录"
          ./token
+         echo "已登录，每天09:10签到和收星,日志保存到/data/signin.log"
+         /data/signin > /data/signin.log 2>&1
      done
-
-     echo "已登录，开始签到和收星,日志保存到signin.log"
-     ./signin > signin.log 2>&1
      else #否则DISABLE为1
          echo "DISABLE为$DISABLE，禁用签到和收星"
 fi

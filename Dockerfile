@@ -7,7 +7,7 @@ RUN cd /data &&\
     mv localtime /etc &&\
     apt-get update && apt-get install --no-install-recommends -y cron procps && apt-get clean &&\
     rm -rf /var/cache/* /var/lib/apt/lists/* &&\
-    echo "10 9 * * * /data/entrypoint.sh" > /etc/cron.d/crontab && crontab /etc/cron.d/crontab
+    echo "10 9 * * * /data/signin > /data/signin.log 2>&1" > /etc/cron.d/crontab && crontab /etc/cron.d/crontab
 
 ENV DISABLE=0
 VOLUME /mnt/data/ttnode

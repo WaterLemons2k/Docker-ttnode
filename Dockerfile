@@ -6,9 +6,9 @@ COPY ["cron", "entrypoint.sh", "localtime", "signin", "token", "ttnode", "yfapp.
 RUN cd /data &&\
     chmod +x entrypoint.sh signin token ttnode &&\
     mv localtime /etc &&\
-    mv cron /etc/cron.d/cron &&\
     apt-get update && apt-get install --no-install-recommends -y cron procps && apt-get clean &&\
     rm -rf /var/cache/* /var/lib/apt/lists/* &&\
+    mv cron /etc/cron.d/cron &&\
     crontab /etc/cron.d/cron
 
 VOLUME /mnt/data/ttnode

@@ -21,3 +21,4 @@ jobs:
            echo ${{ secrets.TOKEN }} | docker login -u ${{ secrets.USERNAME }} --password-stdin
            docker build -t ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }} .
            docker push ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }}
+           docker logout

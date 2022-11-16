@@ -1,1 +1,1 @@
-10 9 * * * /data/signin > /data/signin.log 2>&1
+10 9 * * * /data/entrypoint.sh

@@ -11,7 +11,7 @@ jobs:
   docker:
     strategy:
       matrix:
-        tag: [latest]
+        tag: [latest, v1.0.0.355]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 

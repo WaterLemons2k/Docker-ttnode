@@ -14,7 +14,7 @@ waterlemons2k/ttnode
 ```
 DISABLE=0:不禁用
 DISABLE=1:禁用签到和收星
-DISABLE=2:禁用ttnode
+DISABLE=2:禁用甜糖
 ```
 # [甜糖自动脚本](https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8259846)
 ## 支持以下功能：

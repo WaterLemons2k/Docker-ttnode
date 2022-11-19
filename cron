@@ -1,2 +1,0 @@
-10 9 * * * /data/entrypoint.sh > /data/entrypoint.log 2>&1
-#DON'T REMOVE THE EMPTY LINE AT EOF! CRON REQUIRES THIS!

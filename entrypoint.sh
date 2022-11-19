@@ -5,7 +5,7 @@
 #https://blog.twofei.com/477/
 #https://unix.stackexchange.com/questions/308907/how-to-set-shell-bin-bash-globally-for-cron
 #变量DISABLE:0为不禁用，1为禁用签到和收星，2为禁用ttnode
-#[$(date '+%F %T')]: 现在的日期和时间，示例:1970-01-01 00:00:00
+#[$(date '+%F %T')]: 当前日期和时间，示例:[1970-01-01 00:00:00]
 
 cd /data
 if [ $(ps fax | grep '[c]ron' | wc -l) -lt 1 ]; then #如果带cron的进程数小于1
@@ -20,7 +20,7 @@ if [ $DISABLE != "1" ]; then #如果DISABLE不为1
      done
      
      echo "[$(date '+%F %T')] 已登录，每天09:10签到和收星,日志保存到/data/signin.log"
-     /data/signin > /data/signin.log 2>&1
+     ./signin > /data/signin.log 2>&1
      else #否则DISABLE为1
          echo "[$(date '+%F %T')] DISABLE为$DISABLE，禁用签到和收星"
 fi

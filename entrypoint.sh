@@ -15,7 +15,7 @@ if [ ! -e /var/spool/cron/crontabs/root ]; then #如果找不到crontab
      rm cron #删除cron
 fi
      
-if [ $(ps fax | grep '[c]ron' | wc -l) -lt 1 ]; then #如果名称带cron的进程数小于1
+if [ $(ps -e | grep '[c]ron' | wc -l) -lt 1 ]; then #如果名称带cron的进程数小于1
      echo "[$(date '+%F %T')] 找不到cron，开始运行"
      cron
 fi
@@ -34,7 +34,7 @@ if [ $DISABLE != "1" ]; then #如果DISABLE!=1
 fi
 
 if [ $DISABLE != "2" ]; then #如果DISABLE!=2
-     if [ $(ps fax | grep '[/]mnt/data/ttnode' | wc -l) -lt 1 ]; then #如果名称带ttnode的进程数小于1
+     if [ $(ps -e | grep '[/]mnt/data/ttnode' | wc -l) -lt 1 ]; then #如果名称带ttnode的进程数小于1
          echo "[$(date '+%F %T')] 找不到ttnode，开始运行"
          ./ttnode -p /mnt/data/ttnode -i uid.txt -d
          sleep 1s
@@ -46,7 +46,7 @@ if [ $DISABLE != "2" ]; then #如果DISABLE!=2
          echo "[$(date '+%F %T')] DISABLE=$DISABLE，禁用ttnode"
 fi
 
-if [ $(ps | grep '[b]ash' | wc -l) -lt 1 ]; then #如果名称带bash的进程数小于1
+if [ $(ps -e | grep '[b]ash' | wc -l) -lt 1 ]; then #如果名称带bash的进程数小于2
      echo "[$(date '+%F %T')] 找不到bash，开始运行"
      bash
 fi

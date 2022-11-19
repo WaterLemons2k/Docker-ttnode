@@ -1,2 +1,1 @@
-SHELL=/bin/bash
 10 9 * * * /data/entrypoint.sh

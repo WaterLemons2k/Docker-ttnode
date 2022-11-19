@@ -3,11 +3,9 @@
 #https://github.com/ericwang2006/docker_ttnode/blob/master/build_dir/start.sh
 #https://post.smzdm.com/p/awx4rqkk/
 #https://blog.twofei.com/477/
-#https://askubuntu.com/questions/117978/script-doesnt-run-via-crontab-but-works-fine-standalone
 #https://unix.stackexchange.com/questions/308907/how-to-set-shell-bin-bash-globally-for-cron
 #变量DISABLE:0为不禁用，1为禁用签到和收星，2为禁用ttnode
 #[$(date '+%F %T')]: 现在的日期和时间，示例:1970-01-01 00:00:00
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/data
 
 cd /data
 if [ $(ps fax | grep '[c]ron' | wc -l) -lt 1 ]; then #如果带cron的进程数小于1

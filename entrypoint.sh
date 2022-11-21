@@ -34,17 +34,17 @@ if [[ $DISABLE != "1" ]]; then #如果DISABLE!=1
 fi
 
 if [[ $DISABLE != "2" ]]; then #如果DISABLE!=2
-     if [ $(ps -e | grep '[/]mnt/data/ttnode' | wc -l) -lt 1 ]; then #如果名称带ttnode的进程数小于1
+     if [ $(ps -e | grep '[t]tnode' | wc -l) -lt 1 ]; then #如果名称带ttnode的进程数小于1
          echo "[$(date '+%F %T')] 运行甜糖"
          ./ttnode -p /mnt/data/ttnode -i uid.txt -d
          sleep 1s
-         echo -e "[$(date '+%F %T')] 查看二维码，请访问\n[$(date '+%F %T')] http://waterlemons2k.com/QRCode/?$(cat uid.txt)"
+         echo -e "[$(date '+%F %T')] 要查看二维码，请访问\n[$(date '+%F %T')] http://waterlemons2k.com/QRCode/?$(cat uid.txt)"
      fi
      else #否则DISABLE=2
          echo "[$(date '+%F %T')] DISABLE=$DISABLE，禁用甜糖"
 fi
 
 if [ $(ps -e | grep '[b]ash' | wc -l) -lt 1 ]; then #如果名称带bash的进程数小于1
-     echo "[$(date '+%F %T')] 找不到bash，开始运行"
+     echo "[$(date '+%F %T')] 运行bash"
      bash
 fi

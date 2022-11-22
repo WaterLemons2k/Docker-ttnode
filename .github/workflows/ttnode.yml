@@ -15,9 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
-        uses: actions/checkout@v2
-      - name: Login to build and push
+        uses: actions/checkout@v3
+      - name: Login, build and push
         run: |
+           chmod +x entrypoint.sh token ttnode signin 
            echo ${{ secrets.TOKEN }} | docker login -u ${{ secrets.USERNAME }} --password-stdin
            docker build -t ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }} .
            docker push ${{ secrets.USERNAME }}/${{ env.name }}:${{ matrix.tag }}

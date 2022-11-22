@@ -1,15 +1,16 @@
 # ttnode
-系统:Debian 10  
-架构:x86_64  
-ttnode版本:1.0.0.355
-## 下载并运行容器:
+系统:Alpine 2.6  
+版本:1.0.0.384
+## 运行:
 ```
 docker run -it \
+-v /cache:/mnt/data/ttnode \
+-e DISABLE=0 \
 --net=host \
 --restart=always \
--e DISABLE=0 \
 waterlemons2k/ttnode
 ```
+将 `/cache` 替换为主机缓存目录
 ## 变量:
 ```
 DISABLE=0:不禁用

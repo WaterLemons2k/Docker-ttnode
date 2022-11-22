@@ -1,0 +1,3 @@
+#Docker Image doesn't need these files
+Dockerfile
+README.md

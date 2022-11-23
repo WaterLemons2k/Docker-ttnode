@@ -1,16 +1,16 @@
 # ttnode
-系统:BusyBox 1.23 
+系统:BusyBox 1.23  
 版本:1.0.0.384
 ## 运行:
 ```
 docker run -it \
--v /cache:/mnt/data/ttnode \
+-v /ttnode:/mnt/data/ttnode \
 -e DISABLE=0 \
 --net=host \
 --restart=always \
 waterlemons2k/ttnode
 ```
-将 `/cache` 替换为主机缓存目录
+将 `/ttnode` 替换为主机缓存目录
 ## 变量:
 ```
 DISABLE=0:不禁用

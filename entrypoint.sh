@@ -35,8 +35,4 @@ if [[ $DISABLE != "2" ]]; then #如果DISABLE!=2
      else #否则DISABLE=2
          echo "[$(date '+%F %T')] DISABLE=$DISABLE，禁用甜糖"
 fi
-
-if [ $(ps | grep '[s]h' | grep -v entrypoint.sh | wc -l) -lt 1 ]; then #如果排除entrypoint.sh后名称带sh的进程数小于1
-     echo "[$(date '+%F %T')] 运行sh"
-     sh
-fi
+exec "$@" #运行脚本所有参数

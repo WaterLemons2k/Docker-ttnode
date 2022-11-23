@@ -9,3 +9,4 @@ COPY . /data/
 
 VOLUME /mnt/data/ttnode
 ENTRYPOINT ["/data/entrypoint.sh"]
+CMD ["sh"]

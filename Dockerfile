@@ -4,7 +4,6 @@ ENV DISABLE=0
 
 COPY . /data/
 RUN cd /data &&\
-    chmod +x entrypoint.sh signin token ttnode &&\
     echo "CST-8" > /etc/TZ &&\
     mkdir -p /var/spool/cron/crontabs &&\
     echo -e "45 3 * * * /data/entrypoint.sh > /data/log 2>&1\n" > /var/spool/cron/crontabs/root

@@ -1,6 +1,5 @@
 #Docker Image doesn't need these files
-.dockerignore
-.git
-.github
+.*
 Dockerfile
-README.md
+LICENSE
+*.md

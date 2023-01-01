@@ -14,7 +14,7 @@ waterlemons2k/ttnode
 ## 变量
 ```
 DISABLE=0: 不禁用
-DISABLE=1: 禁用签到和收星
+DISABLE=1: 禁用自动脚本
 DISABLE=2: 禁用甜糖
 ```
 # 甜糖自动脚本

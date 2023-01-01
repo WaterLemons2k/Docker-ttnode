@@ -5,7 +5,7 @@
 #https://blog.twofei.com/477/
 #https://unix.stackexchange.com/questions/140750
 #https://www.shellcheck.net/wiki/SC2126
-#变量DISABLE：0=不禁用，1=禁用签到和收星，2=禁用甜糖
+#变量DISABLE：0=不禁用，1=禁用自动脚本，2=禁用甜糖
 #[$(date '+%F %T')]: 现在的日期和时间，示例:[1970-01-01 00:00:00]
 set -e
 cd /data
@@ -27,7 +27,7 @@ if [ $DISABLE != "1" ]; then #如果 DISABLE!=1
     ./signin
      
 else #否则 DISABLE=1
-    echo "[$(date '+%F %T')] DISABLE=$DISABLE，禁用签到和收星"
+    echo "[$(date '+%F %T')] DISABLE=$DISABLE，禁用自动脚本"
 fi
 
 if [ $DISABLE != "2" ]; then #如果 DISABLE!=2

@@ -3,28 +3,12 @@ name: ttnode
 on:
   push:
 
-env:
-  NAME: ttnode #镜像名称
-  TAG: v1.0.0.384 #第二镜像标签
-
 jobs:
   docker:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: waterlemons2k
-          password: ${{ secrets.TOKEN }}
-          
-      - name: Build and push Docker Image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: |
-            waterlemons2k/${{ env.NAME }}:latest
-            waterlemons2k/${{ env.NAME }}:${{ env.TAG }}
+    uses: WaterLemons2k/Docker/.github/workflows/docker.yml@main
+    with:
+      tags: |
+        waterlemons2k/ttnode
+        waterlemons2k/ttnode:v1.0.0.384
+    secrets:
+      TOKEN: ${{ secrets.TOKEN }}

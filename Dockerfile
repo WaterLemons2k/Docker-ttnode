@@ -1,6 +1,6 @@
 FROM busybox:1.23
 LABEL maintainer="waterlemons2k <docker@waterlemons2k.com>"
-ENV DISABLE=0
+ENV AUTO=1 TTNODE=1
 
 COPY . /data/
 RUN echo "CST-8" > /etc/TZ &&\

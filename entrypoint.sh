@@ -5,8 +5,8 @@
 #https://blog.twofei.com/477/
 #https://unix.stackexchange.com/questions/140750
 #https://www.shellcheck.net/wiki/SC2126
-#变量AUTO：0=禁用自动脚本，1=启用自动脚本
-#变量TTNODE：0=禁用甜糖，1=启用甜糖
+#变量 AUTO：0=禁用自动脚本，1=启用自动脚本
+#变量 TTNODE：0=禁用甜糖，1=启用甜糖
 #[$(date '+%F %T')]: 当前日期和时间，示例：[1970-01-01 00:00:00]
 set -e
 cd /data
@@ -36,7 +36,8 @@ if [ "$TTNODE" = "1" ]; then #如果 TTNODE=1
         echo "[$(date '+%F %T')] 运行甜糖"
         ./ttnode -p /mnt/data/ttnode -i uid.txt -d
         sleep 1
-        echo -e "[$(date '+%F %T')] 要查看二维码，请访问\nhttp://waterlemons2k.com/QRCode/?$(cat uid.txt)"
+        UID=$(cat uid.txt)
+        echo -e "[$(date '+%F %T')] UID：$UID\n[$(date '+%F %T')] 二维码：https://qrcode-2cc.pages.dev/?$UID"
     fi
     
 else #否则 TTNODE!=1
